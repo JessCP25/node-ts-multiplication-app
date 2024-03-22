@@ -11,6 +11,11 @@ export class CreateTable implements CreateTableUseCase {
   constructor() {}
 
   execute({ base, limit = 10 }: CreateTableOptions) {
+    const headerMessage = `
+${"=".repeat(35)}
+          Tabla del ${base}
+${"=".repeat(35)}\n
+`;
     let i = 1;
     let output = "";
 
@@ -18,6 +23,8 @@ export class CreateTable implements CreateTableUseCase {
       output += `${base} x ${i} = ${base * i}\n`;
       i++;
     }
+
+    output = headerMessage + output;
 
     return output;
   }

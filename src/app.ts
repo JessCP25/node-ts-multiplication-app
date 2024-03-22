@@ -2,7 +2,7 @@ import { yarg } from "./config/plugins/yargs.plugin"
 import { ServerApp } from "./presentation/server-app";
 
 
-const { b: base, l:limit, s:showTable} = yarg;
+const { b: base, l:limit, s:showTable, n:name, d: destination} = yarg;
 
 
 (async()=>{
@@ -12,5 +12,5 @@ const { b: base, l:limit, s:showTable} = yarg;
 
 async function main() {
 
-  ServerApp.run({base, limit, showTable})
+  ServerApp.run({base, limit, showTable, name, destination})
 }
