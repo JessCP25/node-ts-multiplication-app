@@ -1,7 +1,9 @@
 import fs from "fs";
+import { yarg } from "./config/plugins/yargs.plugin";
+
+const {b: base, l:limit , s:showTable} = yarg;
 
 let output = "";
-const base = 5;
 const headerMessage = `
 ${'='.repeat(35)}
           Tabla del ${base}
@@ -10,13 +12,16 @@ ${'='.repeat(35)}\n
 
 let i = 1;
 
-while (i < 11) {
-  output +=`${base} x ${i} = ${base * i}\n`
-  i++;
-}
+  while (i <= limit) {
+    output +=`${base} x ${i} = ${base * i}\n`
+    i++;
+  }
+
 
 output = headerMessage + output;
-console.log(output);
+if(showTable){
+  console.log(output);
+}
 
 const outputPath = `outputs`;
 

@@ -1,10 +1,9 @@
-import { mainModule } from "process"
 import { yarg } from "./config/plugins/yargs.plugin"
+import { ServerApp } from "./presentation/server-app";
 
 
-console.log(process.argv)
+const { b: base, l:limit, s:showTable} = yarg;
 
-console.log(yarg);
 
 (async()=>{
   await main();
@@ -12,5 +11,6 @@ console.log(yarg);
 
 
 async function main() {
-  console.log('Ejecutando main')
+
+  ServerApp.run({base, limit, showTable})
 }
