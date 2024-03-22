@@ -20,8 +20,12 @@ ${"=".repeat(35)}\n
     let output = "";
 
     while (i <= limit) {
-      output += `${base} x ${i} = ${base * i}\n`;
+      output += `${base} x ${i} = ${base * i}`;
       i++;
+
+      if (i <= limit) {
+        output += "\n";
+      }
     }
 
     output = headerMessage + output;
